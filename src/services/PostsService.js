@@ -10,6 +10,12 @@ async getPosts(){
   AppState.posts = res.data.posts.map(p => new Post(p))
 }
 
+async createPost(postData){
+  const res = await api.post('api/posts', postData)
+  console.log('making post?', res.data);
+  AppState.posts.push(res.data)
+}
+
 }
 
 export const postsService = new PostsService()

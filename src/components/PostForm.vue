@@ -5,16 +5,23 @@
               <h2>userimage</h2>
             </div>
             <div class="col-md-9">
-              <form> 
-              <div class="row">
+              <form @submit.prevent="handleSubmit"> 
+                <div class="row">
                   <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="body" class="form-label">post</label>
+                    <textarea required name="body" class="form-control"  v-model="editable.body" id="body" rows="3">
+                    </textarea>
                     </div>
                   </div>
                   <div class="row justify-content-between">
-                    <div class="col-4">Add Photo</div>
-                    <div class="col-2"><button type="post" class="btn btn-primary">post</button></div>
+                    <div class="col-4">
+                      <label for="img" class=""></label>
+                      <input type="text" v-model="editable.imgUrl" class="form-control" id="img" placeholder="img url"
+                        name="imgUrl">
+                    </div>
+                    <div class="col-3 pt-3">
+                      <button type="submit" class="btn btn-primary">post</button>
+                    </div>
                   </div>
                 </form>
               </div>
