@@ -13,7 +13,7 @@ async getPosts(){
 async createPost(postData){
   const res = await api.post('api/posts', postData)
   console.log('making post?', res.data);
-  AppState.posts.push(res.data)
+  AppState.posts.unshift(res.data)
 }
 
 }
