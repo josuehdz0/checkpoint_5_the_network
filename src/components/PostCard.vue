@@ -1,0 +1,39 @@
+<template>
+        <div class="border border-dark">
+          <div class="row">
+          <div class="mdi mdi-account"> {{post.creatorName}} </div> 
+          <p>graduated</p>
+          </div>
+          <div class="row">
+            <p>
+              {{post.body}}
+            </p>
+          </div>
+          <div class="row">
+            <img :src="post.imgUrl" alt="">
+          </div>
+        </div>
+</template>
+
+
+<script>
+import { Post } from "../models/Post.js";
+
+export default {
+  props:{
+    post:{
+      type: Post,
+      required: true
+    }
+  },
+  setup(){
+    return {}
+  },
+  
+}
+</script>
+
+
+<style lang="scss" scoped>
+
+</style>
