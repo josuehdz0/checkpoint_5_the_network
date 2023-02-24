@@ -1,7 +1,7 @@
 <template>
         <div class="border border-dark">
           <div class="row">
-          <div class="mdi mdi-account"> {{post.creatorName}} </div> 
+          <div class="mdi mdi-account"> {{post.creator.name}} </div> 
           <p>graduated</p>
           </div>
           <div class="row">

@@ -1,11 +1,41 @@
 <template>
   <div class="container-fluid">
+    <div class="row my-3 justify-content-center "> 
+      <div class="col-md-7 mb-3 ">
+        <div class="border border-dark">
+          <div class="row">
+            <div class="col-md-3">
+              <h2>userimage</h2>
+            </div>
+            <div class="col-md-9">
+              <form> 
+              <div class="row">
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                  </div>
+                  <div class="row justify-content-between">
+                    <div class="col-4">Add Photo</div>
+                    <div class="col-2"><button type="post" class="btn btn-primary">post</button></div>
+                  </div>
+                </form>
+              </div>
+          </div>
+
+        </div>
+        
+        
+
+      </div>
+    </div>
+
     <div class="row my-3 justify-content-center"> 
       <div v-for="p in posts" class="col-md-7 mb-3" >
         <PostCard :post="p"/>
-        </div>
       </div>
     </div>
+  </div>
   
 </template>
 
