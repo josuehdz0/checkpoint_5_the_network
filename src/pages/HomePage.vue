@@ -1,32 +1,9 @@
 <template>
   <div class="container-fluid">
-    <div class="row my-3 justify-content-center "> 
+    <!-- NOTE add this to the row later so only users can post v-if="account.id" -->
+    <div class="row my-3 justify-content-center"> 
       <div class="col-md-7 mb-3 ">
-        <div class="border border-dark">
-          <div class="row">
-            <div class="col-md-3">
-              <h2>userimage</h2>
-            </div>
-            <div class="col-md-9">
-              <form> 
-              <div class="row">
-                  <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                  </div>
-                  <div class="row justify-content-between">
-                    <div class="col-4">Add Photo</div>
-                    <div class="col-2"><button type="post" class="btn btn-primary">post</button></div>
-                  </div>
-                </form>
-              </div>
-          </div>
-
-        </div>
-        
-        
-
+        <PostForm />
       </div>
     </div>
 
@@ -46,6 +23,7 @@ import { postsService } from "../services/PostsService.js";
 import { onMounted, computed } from "vue";
 import { AppState } from "../AppState.js"
 import PostCard from "../components/PostCard.vue";
+import PostForm from "../components/PostForm.vue";
 
 export default {
   setup() {
@@ -62,10 +40,11 @@ export default {
       getPosts()
     })
     return {
-      posts: computed(()=> AppState.posts)
+      posts: computed(()=> AppState.posts),
+      // account: computed(() => AppState.profile)
     };
   },
-  components: {PostCard}
+  components: { PostCard, PostForm }
 }
 </script>
 
