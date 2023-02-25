@@ -1,6 +1,8 @@
 <template>
         <div class="border border-dark">
           <div class="row">
+            <!-- <img :src="post.creator.picture" :alt="post.creator.name" class="profile-picture"
+          :title="`Go to ${post.creator.name}'s profile page!`"> -->
           <div class="mdi mdi-account"> {{post.creator.name}} </div> 
           <p>graduated</p>
           </div>

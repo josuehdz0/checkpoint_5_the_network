@@ -1,9 +1,9 @@
 <template>
   <div class="container-fluid">
     <!-- NOTE add this to the row later so only users can post v-if="profile" -->
-    <div class="row my-3 justify-content-center"> 
+    <div  class="row my-3 justify-content-center"> 
       <div class="col-md-7 mb-3 ">
-        <PostForm />
+        <PostForm/>
       </div>
     </div>
 
