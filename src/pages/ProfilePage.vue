@@ -24,6 +24,8 @@
         <div class="row"> <p> {{profile.bio}}</p></div>
       </div>
 
+      <!-- NOTE Insert PostForm, BUT only if your on your own page -->
+
       <!-- NOTE  -->
       <div class="row my-3 justify-content-center"> 
       <div v-for="p in posts" class="col-md-7 mb-3" >
@@ -32,14 +34,18 @@
     </div>
     </div>
   </div>
+  <div v-else class="container-fluid">
+    <LoadingBoy />
+  </div>
 </template>
 
 
 <script>
-import { onMounted, computed,  } from "vue";
+import { onMounted, computed, onUnmounted  } from "vue";
 import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import PostCard from "../components/PostCard.vue";
+import { postsService } from "../services/PostsService.js";
 import { profilesService } from "../services/ProfilesService.js";
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
@@ -61,7 +67,7 @@ export default {
         async function getPostByCreatorId() {
             try {
                 const profileId = route.params.profileId;
-                await profilesService.getPostByQuery({ creatorId: profileId });
+                await postsService.getPostByQuery({ creatorId: profileId });
             }
             catch (error) {
                 logger.error(error);
@@ -72,6 +78,11 @@ export default {
             getProfileById();
             getPostByCreatorId();
         });
+
+        onUnmounted(() => {
+          profilesService.clearProfile()
+          postsService.clearPosts()
+        })
         return {
             profile: computed(() => AppState.profile),
             posts: computed(() => AppState.posts)

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div v-if="posts.length" class="container-fluid">
     <!-- NOTE add this to the row later so only users can post v-if="profile" -->
     <div  class="row my-3 justify-content-center"> 
       <div class="col-md-7 mb-3 ">
@@ -13,6 +13,9 @@
         <PostCard :post="p"/>
       </div>
     </div>
+  </div>
+  <div v-else class="container-fluid">
+    <LoadingBoy />
   </div>
   
 </template>

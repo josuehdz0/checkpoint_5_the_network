@@ -12,10 +12,8 @@ class ProfilesService{
     AppState.profile = new Profile(res.data)
   }
 
-  async getPostByQuery(query){
-    const res = await api.get('api/posts',{params: query})
-    logger.log('getting post by profile', res.data.posts)
-    AppState.posts = res.data.posts.map(p => new Post(p))
+  clearProfile(){
+    AppState.profile = null
   }
 
 

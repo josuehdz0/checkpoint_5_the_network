@@ -16,6 +16,16 @@ async createPost(postData){
   AppState.posts.unshift(res.data)
 }
 
+async getPostByQuery(query){
+  const res = await api.get('api/posts',{params: query})
+  logger.log('getting post by profile', res.data.posts)
+  AppState.posts = res.data.posts.map(p => new Post(p))
+}
+
+clearPosts(){
+  AppState.posts = []
+}
+
 }
 
 export const postsService = new PostsService()
