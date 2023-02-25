@@ -4,7 +4,7 @@
             <div class="col-2">
               <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
                 <img :src="post.creator.picture" :alt="post.creator.name" class="profile-picture"
-            :title="`Go to your {{post.creator.name}} page!`">
+            :title="`Go to ${post.creator.name}'s' profile page`">
               </router-link>
             </div>
             <div class="col-5 d-flex align-items-center">

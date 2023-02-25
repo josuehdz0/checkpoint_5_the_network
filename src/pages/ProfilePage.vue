@@ -25,6 +25,11 @@
       </div>
 
       <!-- NOTE Insert PostForm, BUT only if your on your own page -->
+      <div class="row my-3 justify-content-center"> 
+        <div  v-if="account.id == profile.id" class="col-md-7 mb-3 ">
+          <PostForm/>
+        </div>
+      </div>
 
       <!-- NOTE  -->
       <div class="row my-3 justify-content-center"> 
@@ -45,6 +50,7 @@ import { onMounted, computed, onUnmounted  } from "vue";
 import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import PostCard from "../components/PostCard.vue";
+import PostForm from "../components/PostForm.vue";
 import { postsService } from "../services/PostsService.js";
 import { profilesService } from "../services/ProfilesService.js";
 import { logger } from "../utils/Logger.js";
@@ -85,10 +91,11 @@ export default {
         })
         return {
             profile: computed(() => AppState.profile),
-            posts: computed(() => AppState.posts)
+            posts: computed(() => AppState.posts),
+            account: computed(()=> AppState.account)
         };
     },
-    components: { PostCard }
+    components: { PostCard, PostForm }
 }
 </script>
 
