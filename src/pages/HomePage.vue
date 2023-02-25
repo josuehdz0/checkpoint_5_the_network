@@ -1,6 +1,7 @@
 <template>
+  <!-- NOTE complete page only loads if all content is ready. Else, loading component -->
   <div v-if="posts.length" class="container-fluid">
-    <!-- NOTE add this to the row later so only users can post v-if="profile" -->
+    <!-- NOTE PostForm only shows up if account is signed in -->
     <div  v-if="account.id && posts.length" class="row my-3 justify-content-center"> 
       <div class="col-md-7 mb-3 ">
         <PostForm/>
