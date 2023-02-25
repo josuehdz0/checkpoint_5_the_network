@@ -1,6 +1,7 @@
 <template>
   <div v-if="profile" class="container-fluid mt-4">
     <div class="row justify-content-center">
+      <!-- NOTE Profile Details Component here -->
       <div class="col-md-7 border border-dark">
         <div class="row justify-content-center">
           <img :src="profile.coverImg" :alt="profile.name" class="p-0">
@@ -22,6 +23,13 @@
         <div class="row"><h1>{{profile.name}}</h1></div>
         <div class="row"> <p> {{profile.bio}}</p></div>
       </div>
+
+      <!-- NOTE  -->
+      <div class="row my-3 justify-content-center"> 
+      <div v-for="p in posts" class="col-md-7 mb-3" >
+        <PostCard :post="p"/>
+      </div>
+    </div>
     </div>
   </div>
 </template>
@@ -31,33 +39,45 @@
 import { onMounted, computed,  } from "vue";
 import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
+import PostCard from "../components/PostCard.vue";
 import { profilesService } from "../services/ProfilesService.js";
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
 
 export default {
-  setup(){
-    const route = useRoute();
-    async function getProfileById(){
-      try {
-        const profileId = route.params.profileId;
-        logger.log('here is the profile id', profileId)
-        await profilesService.getProfileById(profileId)
-      } 
-      catch (error) {
-        logger.error(error);
-        Pop.error(error.message);
-      }
-    }
-    onMounted(()=>{
-      getProfileById();
-    });
-
-    return {
-      profile: computed(()=> AppState.profile),
-      posts: computed(() => AppState.posts)
-    }
-  }
+    setup() {
+        const route = useRoute();
+        async function getProfileById() {
+            try {
+                const profileId = route.params.profileId;
+                logger.log("here is the profile id", profileId);
+                await profilesService.getProfileById(profileId);
+            }
+            catch (error) {
+                logger.error(error);
+                Pop.error(error.message);
+            }
+        }
+        async function getPostByCreatorId() {
+            try {
+                const profileId = route.params.profileId;
+                await profilesService.getPostByQuery({ creatorId: profileId });
+            }
+            catch (error) {
+                logger.error(error);
+                Pop.error(error.message);
+            }
+        }
+        onMounted(() => {
+            getProfileById();
+            getPostByCreatorId();
+        });
+        return {
+            profile: computed(() => AppState.profile),
+            posts: computed(() => AppState.posts)
+        };
+    },
+    components: { PostCard }
 }
 </script>
 

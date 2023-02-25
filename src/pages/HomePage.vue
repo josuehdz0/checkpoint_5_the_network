@@ -7,6 +7,7 @@
       </div>
     </div>
 
+    <!-- NOTE PostCard Template here -->
     <div class="row my-3 justify-content-center"> 
       <div v-for="p in posts" class="col-md-7 mb-3" >
         <PostCard :post="p"/>
