@@ -1,7 +1,7 @@
 <template>
   <div v-if="posts.length" class="container-fluid">
     <!-- NOTE add this to the row later so only users can post v-if="profile" -->
-    <div  class="row my-3 justify-content-center"> 
+    <div  v-if="account.id && posts.length" class="row my-3 justify-content-center"> 
       <div class="col-md-7 mb-3 ">
         <PostForm/>
       </div>
@@ -45,7 +45,8 @@ export default {
     })
     return {
       posts: computed(()=> AppState.posts),
-      profile: computed(() => AppState.profile)
+      profile: computed(() => AppState.profile),
+      account: computed(()=> AppState.account)
     };
   },
   components: { PostCard, PostForm }
