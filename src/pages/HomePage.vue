@@ -8,11 +8,13 @@
       </div>
     </div>
 
-    <div>
-       
+
+<!-- NOTE need to figure out how pagination works -->
+
+    <!-- <div>
         <button class="btn btn-outline-dark w-50" :disabled="!previousPage" @click="changePage(previousPage)">Previous</button>
         <button class="btn btn-outline-dark w-50"  @click="changePage(nextPage)">Next</button>
-      </div>
+      </div> -->
 
     <!-- NOTE PostCard Template here -->
     <div class="row my-3 justify-content-center"> 

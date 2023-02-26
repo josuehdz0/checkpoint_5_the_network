@@ -11,24 +11,35 @@
           <div class="col-3"> 
             <img :src="profile.picture" :alt="profile.name" class="profile-picture p-0">
           </div>
-          <div class="col-4 d-flex align-items-center">
-            <div class="row">
-              <div class="col-4">
-                <a :href="profile.github" target="_blank">
-                  <h1 v-if="profile.github"  class=" mdi mdi-github"></h1>
-                </a>
-              </div>
-              <div class="col-4">
-                <a :href="profile.linkedin" target="_blank" >
-                  <h1 v-if="profile.linkedin" class=" mdi mdi-linkedin"></h1>
-                </a>
-              </div>
-              <div class="col-4">
-                <a :href="profile.resume" target="_blank" >
-                  <h1 v-if="profile.resume" class=" mdi mdi-file-document-outline"></h1>
+          <div class="col-4">
+            <div class="row justify-content-end">
 
-                </a>
+              <!-- NOTE links -->
+              <div class="col-8 d-flex align-items-center">
+                <div class="row">
+                  <div class="col-4">
+                    <a :href="profile.github" target="_blank">
+                      <h1 v-if="profile.github"  class=" mdi mdi-github"></h1>
+                    </a>
+                  </div>
+                  <div class="col-4">
+                    <a :href="profile.linkedin" target="_blank" >
+                      <h1 v-if="profile.linkedin" class=" mdi mdi-linkedin"></h1>
+                    </a>
+                  </div>
+                  <div class="col-4">
+                    <a :href="profile.resume" target="_blank" >
+                      <h1 v-if="profile.resume" class=" mdi mdi-file-document-outline"></h1>
+    
+                    </a>
+                  </div>
+                </div>
               </div>
+              <div v-if="account.id == profile.id" class="col-2 p-2" >
+                <i class="mdi mdi-dots-horizontal "></i>
+              </div>
+              
+
             </div>
           </div>
         </div>

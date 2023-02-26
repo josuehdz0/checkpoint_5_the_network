@@ -2,7 +2,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+        <h5>THE NETWORK</h5>
+        <!-- TODO make logo later -->
+        <!-- <img alt="logo" src="../assets/img/cw-logo.png" height="45" /> -->
       </div>
     </router-link>
     <button
@@ -17,15 +19,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto">
-        <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
-        </li>
-      </ul>
-      <!-- LOGIN COMPONENT HERE -->
-      <Login />
+      <div class="d-flex justify-content-end ms-auto">
+
+        <ul class="navbar-nav me-auto my-auto d-flex align-items-center ">
+          <li class="">
+            <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase ">
+              About
+            </router-link>
+          </li>
+        </ul>
+        <!-- LOGIN COMPONENT HERE -->
+        <Login />
+      </div>
     </div>
   </nav>
 </template>
@@ -53,9 +58,10 @@ a:hover {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  /* padding-top:; */
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   nav {
     height: 64px;
   }

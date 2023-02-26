@@ -1,16 +1,23 @@
 <template>
         <div class="border border-dark">
           <div class="row ">
-            <div class="col-3">
-              <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
-                <img :src="post.creator.picture" alt="test" class="profile-picture"
-            :title="`Go to ${post.creator.name}'s' profile page`">
-              </router-link>
+            <div class="col-8">
+              <div class="row">
+                <div class="col-lg-3 col-5">
+                  <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
+                    <img :src="post.creator.picture" alt="test" class="profile-picture"
+                :title="`Go to ${post.creator.name}'s' profile page`">
+                  </router-link>
+                </div>
+                <div class="col-5 mt-3">
+                  <h5> {{post.creator.name}} </h5> 
+                </div>
+              </div>
+              </div>
+              <div v-if="account.id == post.creatorId" class="col-4" >
+                <i class="mdi mdi-dots-horizontal "></i>
+              </div>
             </div>
-            <div class="col-5 mt-3">
-              <h5> {{post.creator.name}} </h5> 
-            </div>
-          </div>
             
           <div class="row">
             <!-- NOTE Graduation icon only shows next to profiles that have graduated -->
@@ -43,7 +50,9 @@
 
 
 <script>
+import { computed } from "@vue/reactivity";
 import { RouterLink } from "vue-router";
+import { AppState } from "../AppState.js";
 import { Post } from "../models/Post.js";
 
 export default {
@@ -54,7 +63,9 @@ export default {
         }
     },
     setup() {
-        return {};
+        return {
+          account: computed(()=> AppState.account)
+        };
     },
     components: { RouterLink }
 }
