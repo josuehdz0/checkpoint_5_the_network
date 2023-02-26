@@ -17,7 +17,7 @@
             <span v-if="post.creator.graduated">
               <div class="mdi mdi-school"></div>
             </span>
-            <span> {{ post.createdAt }}</span>
+            <span> {{ post.timeAgo }}</span>
           </div>
           <div class="row">
             <p>
