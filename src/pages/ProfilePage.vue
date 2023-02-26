@@ -2,7 +2,7 @@
   <div v-if="profile" class="container-fluid mt-4">
     <div class="row justify-content-center">
       <!-- NOTE Profile Details Component here -->
-      <div class="col-md-7 border border-dark">
+      <div class="col-md-7 col-11 border border-dark">
         <div class="row justify-content-center">
           <img :src="profile.coverImg" :alt="profile.name" class="p-0">
           
@@ -11,15 +11,25 @@
           <div class="col-3"> 
             <img :src="profile.picture" :alt="profile.name" class="profile-picture p-0">
           </div>
-          <div class="col-3 p-0">
+          <div class="col-4 d-flex align-items-center">
             <div class="row">
-              <div class="col-4 p-0 m-0">linkdin</div>
-              <div class="col-4 p-0 m-0">github</div>
-              <div class="col-4 p-0 m-0">resume</div>
+              <div class="col-4">
+                <h1 v-if="profile.github" class=" mdi mdi-github"></h1>
+              </div>
+              <div class="col-4">
+                <h1 v-if="profile.linkedin" class=" mdi mdi-linkedin"></h1>
+              </div>
+              <div class="col-4">
+                <h1 v-if="profile.resume" class=" mdi mdi-file-document-outline"></h1>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">{{profile.createdAt}}</div>
+        <div class="row">
+          <p>
+            {{profile.class}}
+          </p> 
+        </div>
         <div class="row"><h1>{{profile.name}}</h1></div>
         <div class="row"> <p> {{profile.bio}}</p></div>
       </div>
