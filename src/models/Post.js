@@ -9,6 +9,8 @@ export class Post{
     this.likeIds = data.likeIds
     this.creator = new Profile(data.creator)
     this.createdAt = new Date(data.createdAt)
+    this.likes = data.likes
+    this.likeCount = data.likes.length
   }
   
   get timeAgo() {

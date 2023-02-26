@@ -7,17 +7,22 @@
             :title="`Go to ${post.creator.name}'s' profile page`">
               </router-link>
             </div>
-            <div class="col-5 d-flex align-items-center">
-              <div> {{post.creator.name}} </div> 
+            <div class="col-5 mt-3">
+              <h5> {{post.creator.name}} </h5> 
             </div>
           </div>
             
           <div class="row">
             <!-- NOTE Graduation icon only shows next to profiles that have graduated -->
-            <span v-if="post.creator.graduated">
-              <div class="mdi mdi-school"></div>
-            </span>
-            <span> {{ post.timeAgo }}</span>
+            <div class="col-3 d-flex justify-content-center">
+              <h5> {{ post.timeAgo }} </h5>
+            </div>
+            <div class="col-3">
+              <h5 v-if="post.creator.graduated">
+                <div class="mdi mdi-school"></div>
+              </h5>
+              
+            </div>
           </div>
           <div class="row">
             <p>
@@ -26,6 +31,11 @@
           </div>
           <div class="row">
             <img :src="post.imgUrl" alt="">
+          </div>
+          <div class="row justify-content-end">
+            <h5 class="text-end">
+             <i class="mdi mdi-heart-outline"></i> {{post.likes.length}}
+            </h5>
           </div>
 
         </div>

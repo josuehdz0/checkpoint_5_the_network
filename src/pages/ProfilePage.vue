@@ -14,13 +14,20 @@
           <div class="col-4 d-flex align-items-center">
             <div class="row">
               <div class="col-4">
-                <h1 v-if="profile.github" class=" mdi mdi-github"></h1>
+                <a :href="profile.github" target="_blank">
+                  <h1 v-if="profile.github"  class=" mdi mdi-github"></h1>
+                </a>
               </div>
               <div class="col-4">
-                <h1 v-if="profile.linkedin" class=" mdi mdi-linkedin"></h1>
+                <a :href="profile.linkedin" target="_blank" >
+                  <h1 v-if="profile.linkedin" class=" mdi mdi-linkedin"></h1>
+                </a>
               </div>
               <div class="col-4">
-                <h1 v-if="profile.resume" class=" mdi mdi-file-document-outline"></h1>
+                <a :href="profile.resume" target="_blank" >
+                  <h1 v-if="profile.resume" class=" mdi mdi-file-document-outline"></h1>
+
+                </a>
               </div>
             </div>
           </div>
