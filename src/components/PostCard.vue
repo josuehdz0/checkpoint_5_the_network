@@ -1,6 +1,6 @@
 <template>
-        <div class="border border-dark">
-          <div class="row ">
+        <div class="">
+          <div class="row  justify-content-between border border-dark">
             <div class="col-8">
               <div class="row">
                 <div class="col-lg-3 col-5">
@@ -14,8 +14,21 @@
                 </div>
               </div>
               </div>
-              <div v-if="account.id == post.creatorId" class="col-4" >
-                <i class="mdi mdi-dots-horizontal "></i>
+              <!-- NOTE edit only shows up on post by user signed in -->
+              <div v-if="account.id == post.creatorId" class="col-2 p-2 mb-5" >
+                <div class="dropdown text-center">
+                  <button class="btn btn-light " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  
+                    <i class="mdi mdi-dots-horizontal "></i>
+                    
+                  </button>
+                  <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Edit</a></li>
+                  <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                  </ul>
+                  </div>
+
+                
               </div>
             </div>
             
