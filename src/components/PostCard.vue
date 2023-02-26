@@ -12,7 +12,11 @@
                 <div> {{post.creator.name}} </div> 
               </div>
               <div class="row">
-                <p>graduated</p>
+                <!-- NOTE Graduation icon only shows next to profiles that have graduated -->
+                <span v-if="post.creator.graduated">
+                  <div class="mdi mdi-school"></div>
+
+                </span>
               </div>
             
 

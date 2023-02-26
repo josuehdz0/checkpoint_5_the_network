@@ -3,14 +3,14 @@
   <div v-if="posts.length" class="container-fluid">
     <!-- NOTE PostForm only shows up if account is signed in -->
     <div  v-if="account.id && posts.length" class="row my-3 justify-content-center"> 
-      <div class="col-md-7 mb-3 ">
+      <div class="col-md-7  col-11 mb-3 ">
         <PostForm/>
       </div>
     </div>
 
     <!-- NOTE PostCard Template here -->
     <div class="row my-3 justify-content-center"> 
-      <div v-for="p in posts" class="col-md-7 mb-3" >
+      <div v-for="p in posts" class="col-md-7 col-11 mb-3" >
         <PostCard :post="p"/>
       </div>
     </div>
