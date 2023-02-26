@@ -8,6 +8,12 @@
       </div>
     </div>
 
+    <div>
+       
+        <button class="btn btn-outline-dark w-50" :disabled="!previousPage" @click="changePage(previousPage)">Previous</button>
+        <button class="btn btn-outline-dark w-50"  @click="changePage(nextPage)">Next</button>
+      </div>
+
     <!-- NOTE PostCard Template here -->
     <div class="row my-3 justify-content-center"> 
       <div v-for="p in posts" class="col-md-7 col-11 mb-3" >
@@ -40,6 +46,8 @@ export default {
         Pop.error(error.message);
       }
     }
+    
+   
 
     onMounted(()=>{
       getPosts()
@@ -47,7 +55,18 @@ export default {
     return {
       posts: computed(()=> AppState.posts),
       profile: computed(() => AppState.profile),
-      account: computed(()=> AppState.account)
+      account: computed(()=> AppState.account),
+      nextPage: computed(() => AppState.nextPage),
+      previousPage: computed(() => AppState.previousPage),
+
+
+      async changePage(url){
+      try {
+        await postsService.changePage(url)
+      } catch (error) {
+        Pop.error('ERROR', error.message)
+      }
+    }
     };
   },
   components: { PostCard, PostForm }
