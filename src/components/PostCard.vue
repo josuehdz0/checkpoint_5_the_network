@@ -1,9 +1,9 @@
 <template>
-        <div class="">
-          <div class="row  justify-content-between border border-dark">
+        <div class=" border-top border-dark border-4">
+          <div class="row  justify-content-md-between ">
             <div class="col-8">
               <div class="row">
-                <div class="col-lg-3 col-5">
+                <div class="col-lg-3 col-md-5 col-7 px-md-4 py-md-2">
                   <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
                     <img v-if="post.creator.picture" :src="post.creator.picture" alt="test" class="profile-picture"
                 :title="`Go to ${post.creator.name}'s' profile page`">
@@ -18,7 +18,7 @@
               </div>
               </div>
               <!-- NOTE edit only shows up on post by user signed in -->
-              <div v-if="account.id == post.creatorId" class="col-2 p-2 mb-5" >
+              <div v-if="account.id == post.creatorId" class="col-md-2 col-4 p-2 mb-5" >
                 <div class="dropdown text-center">
                   <button class="btn btn-light " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   
@@ -46,7 +46,7 @@
               
             </div>
           </div>
-          <div class="row">
+          <div class="row px-3">
             <p>
               {{post.body}}
             </p>
@@ -54,7 +54,7 @@
           <div class="row">
             <img :src="post.imgUrl" alt="">
           </div>
-          <div class="row justify-content-end">
+          <div class="row justify-content-end pe-2 pt-2">
             <h5 class="text-end">
              <i class="mdi mdi-heart-outline"></i> {{post.likes.length}}
             </h5>

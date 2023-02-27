@@ -1,5 +1,5 @@
 <template>
- <div class="col-md-10 p-3 m-3">
+ <div class="col-md-10 col-11 p-3 m-3">
   <div class="row justify-object-center">
     <a :href="ad.linkURL" class="d-flex justify-content-center fitad">
       <img :src="ad.tall" :alt="ad.title" class="fitad">

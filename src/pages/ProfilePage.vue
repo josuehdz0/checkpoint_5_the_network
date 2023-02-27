@@ -2,9 +2,9 @@
   <div v-if="profile && posts.length" class="container-fluid mt-4">
     <div class="row justify-content-center justify-content-md-end">
       <!-- NOTE Profile Details Component here -->
-      <div class="col-md-8 col-11 border border-dark">
+      <div class="col-md-8 col-11 border border-dark rounded">
         <div class="row justify-content-center">
-          <img :src="profile.coverImg" :alt="profile.name" class="p-0">
+          <img :src="profile.coverImg" :alt="profile.name" class="p-0 rounded-top">
           
         </div>
         <div class="row justify-content-between">
@@ -68,7 +68,18 @@
             {{profile.class}}
           </p> 
         </div>
-        <div class="row"><h1>{{profile.name}}</h1></div>
+        <div class="row">
+          <div class="col-6">
+            <h1>{{profile.name}}
+            </h1>
+          </div>
+          <div class="col-6">
+            <h2 v-if="profile.graduated">
+                  <div class="mdi mdi-school text-end"></div>
+                </h2>
+
+          </div>
+        </div>
         <div class="row"> <p> {{profile.bio}}</p></div>
       </div>
 

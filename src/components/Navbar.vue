@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <h5>THE NETWORK</h5>
+        <h3>THE NETWORK</h3>
         <!-- TODO make logo later -->
         <!-- <img alt="logo" src="../assets/img/cw-logo.png" height="45" /> -->
       </div>
@@ -22,11 +22,11 @@
       <div class="d-flex justify-content-end ms-auto">
 
         <ul class="navbar-nav me-auto my-auto d-flex align-items-center ">
-          <li class="">
+          <!-- <li class="">
             <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase ">
               About
             </router-link>
-          </li>
+          </li> -->
         </ul>
         <!-- LOGIN COMPONENT HERE -->
         <Login />
@@ -63,7 +63,7 @@ a:hover {
 
 @media screen and (min-width: 769px) {
   nav {
-    height: 11vh;
+    height: 14vh;
   }
 
   

@@ -1,12 +1,12 @@
 <template>
-   <div class="border border-dark">
+   <div class="border border-dark rounded border-3">
       <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 pt-2 ps-4">
               <img :src="account.picture" :alt="account.name" class="profile-picture"
           :title="`Go to your profile page!`">
           
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9 pe-4 ps-4">
               <form @submit.prevent="handleSubmit"> 
                 <div class="row">
                   <div class="form-group">
@@ -16,12 +16,12 @@
                     </div>
                   </div>
                   <div class="row justify-content-between">
-                    <div class="col-4">
-                      <label for="img" class=""></label>
+                    <div class="col-md-4 pb-m-4 pb-2">
+                      <label for="img" class="p-0"></label>
                       <input type="text" v-model="editable.imgUrl" class="form-control" id="img" placeholder="img url"
                         name="imgUrl">
                     </div>
-                    <div class="col-3 pt-3">
+                    <div class="col-md-3 d-flex py-m-4 py-2">
                       <button type="submit" class="btn btn-primary">post</button>
                     </div>
                   </div>
@@ -76,8 +76,8 @@ export default {
 <style lang="scss" scoped>
 
 .profile-picture {
-  height: 10vh;
-  width: 10vh;
+  height: 20vh;
+  width: 20vh;
   border-radius: 50%;
   object-fit: cover;
   // box-shadow: 2px 2px 4px black;
