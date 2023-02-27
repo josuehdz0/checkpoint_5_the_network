@@ -9,7 +9,9 @@
           <router-view />
         </div>
         <div class="col-md-3">
-          ADDS
+          <div v-for="a in ads" class="row">
+            <AddCard :ad = "a" />
+          </div>
         </div>
       </div>
     </div>
@@ -20,17 +22,32 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
+import AddCard from "./components/AddCard.vue"
 import Navbar from './components/Navbar.vue'
+import { adsService } from "./services/AdsService.js"
+import Pop from "./utils/Pop.js"
 
 export default {
   setup() {
+
+    async function getAds(){
+      try {
+        await adsService.getAds()
+      } catch (error) {
+        Pop.error(error.message)
+      }
+    }
+    onMounted(()=>{
+      getAds()
+    })
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      ads: computed(()=> AppState.ads)
     }
   },
-  components: { Navbar }
+  components: { Navbar, AddCard }
 }
 </script>
 <style lang="scss">

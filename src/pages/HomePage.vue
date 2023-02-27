@@ -74,7 +74,7 @@ export default {
 
     onMounted(()=>{
       getPosts()
-      getAds()
+      // getAds()
     })
     return {
       posts: computed(()=> AppState.posts),
@@ -82,6 +82,7 @@ export default {
       account: computed(()=> AppState.account),
       nextPage: computed(() => AppState.nextPage),
       previousPage: computed(() => AppState.previousPage),
+      ads: computed(() => AppState.ads),
 
 
       async changePage(url){
