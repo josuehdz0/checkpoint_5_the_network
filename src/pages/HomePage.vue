@@ -45,6 +45,7 @@
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
 import { postsService } from "../services/PostsService.js";
+import { adsService } from "../services/AdsService.js";
 import { onMounted, computed } from "vue";
 import { AppState } from "../AppState.js"
 import PostCard from "../components/PostCard.vue";
@@ -63,7 +64,7 @@ export default {
 
     async function getAds(){
       try {
-        
+        await adsService.getAds()
       } catch (error) {
         Pop.error(error.message)
       }
