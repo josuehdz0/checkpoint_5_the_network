@@ -3,6 +3,7 @@ import { Profile } from "./Account.js"
 export class Post{
   constructor(data){
     this.id = data.id || null
+    this._id = this._id
     this.body = data.body
     this.imgUrl = data.imgUrl || null
     this.creatorId = data.creatorId

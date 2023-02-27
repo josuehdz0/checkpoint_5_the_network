@@ -1,6 +1,6 @@
 <template>
   <!-- NOTE complete page only loads if all content is ready. Else, loading component -->
-  <div v-if="posts.length" class="container-fluid">
+  <div v-if="posts.length && account.id" class="container-fluid">
     <!-- NOTE PostForm only shows up if account is signed in -->
     <div  v-if="account.id && posts.length" class="row my-3 justify-content-center"> 
       <div class="col-md-7  col-11 mb-3 ">
@@ -11,10 +11,10 @@
 
 <!-- NOTE need to figure out how pagination works -->
 
-    <!-- <div>
+    <div>
         <button class="btn btn-outline-dark w-50" :disabled="!previousPage" @click="changePage(previousPage)">Previous</button>
-        <button class="btn btn-outline-dark w-50"  @click="changePage(nextPage)">Next</button>
-      </div> -->
+        <button class="btn btn-outline-dark w-50" :disabled="!nextPage" @click="changePage(nextPage)">Next</button>
+      </div>
 
     <!-- NOTE PostCard Template here -->
     <div class="row my-3 justify-content-center"> 

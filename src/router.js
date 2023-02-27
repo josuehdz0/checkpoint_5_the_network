@@ -27,6 +27,8 @@ const routes = [
     name: 'Profile',
     component: loadPage('ProfilePage')
   }
+  
+
 ]
 
 export const router = createRouter({

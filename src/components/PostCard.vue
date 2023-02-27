@@ -23,8 +23,8 @@
                     
                   </button>
                   <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                  <li><a class="dropdown-item" href="#">Delete Post</a></li>
+                  <li><a class="dropdown-item" href="#"> <i class="mdi mdi-pencil-outline "></i> Edit</a></li>
+                  <li><a class="dropdown-item text-danger" @click="removePost"> <i class="mdi mdi-trash-can-outline "></i> Delete Post</a></li>
                   </ul>
                   </div>
 
@@ -64,9 +64,14 @@
 
 <script>
 import { computed } from "@vue/reactivity";
-import { RouterLink } from "vue-router";
+import { onMounted } from "vue";
+import { RouterLink, useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import { Post } from "../models/Post.js";
+import { router } from "../router.js";
+import { postsService } from "../services/PostsService.js";
+import { logger } from "../utils/Logger.js";
+import Pop from "../utils/Pop.js";
 
 export default {
     props: {
@@ -75,9 +80,27 @@ export default {
             required: true
         }
     },
-    setup() {
+    setup(props) {
+      const route = useRoute()
         return {
-          account: computed(()=> AppState.account)
+
+          posts: computed(()=> AppState.posts),
+          account: computed(()=> AppState.account),
+          
+          async removePost(){
+            const postId = props.post.id
+            logger.log('hello?',postId)
+            const yes = await Pop.confirm('Are you sure you want to delete this post?')
+            if (!yes) {
+              return
+            }
+            try {
+              await postsService.removePost(postId)
+            } catch (error) {
+              Pop.error(error, 'Removing Post')
+            }
+          }
+
         };
     },
     components: { RouterLink }
