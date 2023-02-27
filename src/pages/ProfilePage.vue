@@ -1,5 +1,5 @@
 <template>
-  <div v-if="profile" class="container-fluid mt-4">
+  <div v-if="profile && posts.length" class="container-fluid mt-4">
     <div class="row justify-content-center">
       <!-- NOTE Profile Details Component here -->
       <div class="col-md-7 col-11 border border-dark">
@@ -14,20 +14,22 @@
           <div class="col-4">
             <div class="row justify-content-end">
 
-              <!-- NOTE links -->
+              
+              
+            <!-- NOTE links -->
               <div class="col-8 d-flex align-items-center">
                 <div class="row">
-                  <div class="col-4">
+                  <div class="col-4 p-1">
                     <a :href="profile.github" target="_blank">
-                      <h1 v-if="profile.github"  class=" mdi mdi-github"></h1>
+                      <h1 v-if="profile.github"  class=" mdi mdi-github text-center"></h1>
                     </a>
                   </div>
-                  <div class="col-4">
+                  <div class="col-4 p-1">
                     <a :href="profile.linkedin" target="_blank" >
                       <h1 v-if="profile.linkedin" class=" mdi mdi-linkedin"></h1>
                     </a>
                   </div>
-                  <div class="col-4">
+                  <div class="col-4 p-1">
                     <a :href="profile.resume" target="_blank" >
                       <h1 v-if="profile.resume" class=" mdi mdi-file-document-outline"></h1>
     
@@ -35,9 +37,22 @@
                   </div>
                 </div>
               </div>
-              <div v-if="account.id == profile.id" class="col-2 p-2" >
-                <i class="mdi mdi-dots-horizontal "></i>
+
+              <!-- NOTE Edit profile -->
+              <div v-if="account.id == profile.id" class="col-4 p-2" >
+                <div class="dropdown text-center">
+                <button class="btn btn-light " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                
+                  <i class="mdi mdi-dots-horizontal "></i>
+                  
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"> <i class="mdi mdi-pencil-outline "></i> Edit</a></li>
+
+                </ul>
+                </div>
               </div>
+            <div v-else=" "></div>
               
 
             </div>
@@ -66,6 +81,17 @@
       </div>
     </div>
     </div>
+     <!-- NOTE Pagination functionality -->
+     <div class="row justify-content-center mb-3">
+        <div class="col-md-3 col-6 d-flex justify-content-center">
+          <button class="btn btn-outline-dark w-100 btn-scroll-top" :disabled="!previousPage" @click="changePage(previousPage)"> Previous</button>
+        </div>
+        <div class="col-md-3 col-6 d-flex justify-content-center">
+          <button class="btn btn-outline-dark w-100" :disabled="!nextPage" @click="changePage(nextPage)">Next</button>
+        </div>
+        </div>
+
+
   </div>
   <div v-else class="container-fluid">
     <LoadingBoy />
@@ -133,6 +159,7 @@ export default {
   height: 10vh;
   width: 10vh;
   border-radius: 50%;
+  object-fit: cover;
   // box-shadow: 2px 2px 4px black;
 }
 </style>

@@ -9,19 +9,25 @@
     </div>
 
 
-<!-- NOTE need to figure out how pagination works -->
-
-    <div>
-        <button class="btn btn-outline-dark w-50" :disabled="!previousPage" @click="changePage(previousPage)">Previous</button>
-        <button class="btn btn-outline-dark w-50" :disabled="!nextPage" @click="changePage(nextPage)">Next</button>
-      </div>
-
+    
     <!-- NOTE PostCard Template here -->
     <div class="row my-3 justify-content-center"> 
       <div v-for="p in posts" class="col-md-7 col-11 mb-3" >
         <PostCard :post="p"/>
       </div>
     </div>
+
+    <!-- NOTE Pagination functionality -->
+        <div class="row justify-content-center my-3">
+          <div class="col-md-3 col-6 d-flex justify-content-center">
+            <button class="btn btn-outline-dark w-100" :disabled="!previousPage" @click="changePage(previousPage)"> Previous</button>
+          </div>
+          <div class="col-md-3 col-6 d-flex justify-content-center">
+            <button class="btn btn-outline-dark w-100" :disabled="!nextPage" @click="changePage(nextPage)" aria-label="Previous" >Next</button>
+          </div>
+          </div>
+
+
   </div>
   <div v-else class="container-fluid">
     <LoadingBoy />

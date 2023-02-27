@@ -23,13 +23,12 @@
                     
                   </button>
                   <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#"> <i class="mdi mdi-pencil-outline "></i> Edit</a></li>
+                  <!-- <li><a class="dropdown-item" href="#"> <i class="mdi mdi-pencil-outline "></i> Edit</a></li> -->
                   <li><a class="dropdown-item text-danger" @click="removePost"> <i class="mdi mdi-trash-can-outline "></i> Delete Post</a></li>
                   </ul>
                   </div>
-
-                
               </div>
+              
             </div>
             
           <div class="row">
