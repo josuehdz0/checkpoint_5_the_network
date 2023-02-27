@@ -1,4 +1,4 @@
-export class Add{
+export class Ad{
   constructor(data){
     this.title = data.title
     this.linkURL = data.linkURL

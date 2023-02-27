@@ -60,11 +60,20 @@ export default {
         Pop.error(error.message);
       }
     }
+
+    async function getAds(){
+      try {
+        
+      } catch (error) {
+        Pop.error(error.message)
+      }
+    }
     
    
 
     onMounted(()=>{
       getPosts()
+      getAds()
     })
     return {
       posts: computed(()=> AppState.posts),
