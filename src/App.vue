@@ -3,7 +3,16 @@
     <Navbar />
   </header>
   <main>
-    <router-view />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <router-view />
+        </div>
+        <div class="col-md-3">
+          ADDS
+        </div>
+      </div>
+    </div>
   </main>
    <footer class="bg-dark text-light">
     This app was a pain to make

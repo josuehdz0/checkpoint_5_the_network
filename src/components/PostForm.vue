@@ -79,6 +79,7 @@ export default {
   height: 10vh;
   width: 10vh;
   border-radius: 50%;
+  object-fit: cover;
   // box-shadow: 2px 2px 4px black;
 }
 </style>

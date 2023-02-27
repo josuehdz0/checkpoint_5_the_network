@@ -1,8 +1,8 @@
 <template>
   <div v-if="profile && posts.length" class="container-fluid mt-4">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center justify-content-md-end">
       <!-- NOTE Profile Details Component here -->
-      <div class="col-md-7 col-11 border border-dark">
+      <div class="col-md-8 col-11 border border-dark">
         <div class="row justify-content-center">
           <img :src="profile.coverImg" :alt="profile.name" class="p-0">
           
@@ -11,7 +11,7 @@
           <div class="col-3"> 
             <img :src="profile.picture" :alt="profile.name" class="profile-picture p-0">
           </div>
-          <div class="col-4">
+          <div class="col-5">
             <div class="row justify-content-end">
 
               
@@ -73,27 +73,33 @@
       </div>
 
       <!-- NOTE Insert PostForm, BUT only if your on your own page -->
-      <div class="row my-3 justify-content-center"> 
-        <div  v-if="account.id == profile.id" class="col-md-7 mb-3 ">
+      <div class="row my-3 me-1 justify-content-center justify-content-md-end"> 
+        <div  v-if="account.id == profile.id" class="col-md-8 mb-3 ">
           <PostForm/>
         </div>
       </div>
 
       <!-- NOTE  -->
-      <div class="row my-3 justify-content-center"> 
-      <div v-for="p in posts" class="col-md-7 mb-3" >
+      <div class="row my-3 me-1 justify-content-center justify-content-md-end"> 
+      <div v-for="p in posts" class="col-md-8 mb-3" >
         <PostCard :post="p"/>
       </div>
     </div>
     </div>
      <!-- NOTE Pagination functionality -->
-     <div class="row justify-content-center mb-3">
-        <div class="col-md-3 col-6 d-flex justify-content-center">
-          <button class="btn btn-outline-dark w-100" :disabled="!previousPage" @click="changePageByProfileId(previousPage)"> Previous</button>
+     <div class="row justify-content-center justify-content-md-end mb-3">
+      <div class="col-md-8">
+        <div class="row">
+
+          <div class="col-md-6 col-6 d-flex justify-content-center">
+            <button class="btn btn-outline-dark w-100" :disabled="!previousPage" @click="changePageByProfileId(previousPage)"> Previous</button>
+          </div>
+          <div class="col-md-6 col-6 d-flex justify-content-center">
+            <button class="btn btn-outline-dark w-100" :disabled="!nextPage" @click="changePageByProfileId(nextPage)">Next</button>
+          </div>
+
         </div>
-        <div class="col-md-3 col-6 d-flex justify-content-center">
-          <button class="btn btn-outline-dark w-100" :disabled="!nextPage" @click="changePageByProfileId(nextPage)">Next</button>
-        </div>
+      </div>
         </div>
 
 

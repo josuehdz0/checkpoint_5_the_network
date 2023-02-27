@@ -32,9 +32,9 @@ class ProfilesService{
   }
 
   async editProfile(profileData){
-    const res = await api.put('api/account/'+ profileData)
-    AppState.profile = res.data
-
+    const res = await api.put('/account', profileData)
+    logger.log(res.data, 'edit?')
+    AppState.account = res.data
   }
 
   clearProfile(){

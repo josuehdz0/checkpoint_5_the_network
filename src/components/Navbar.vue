@@ -63,8 +63,10 @@ a:hover {
 
 @media screen and (min-width: 769px) {
   nav {
-    height: 64px;
+    height: 11vh;
   }
+
+  
 }
 
 </style>

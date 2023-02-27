@@ -16,49 +16,49 @@
             <!-- NOTE name -->
             <div class="mb-3">
               <label for="name" class="form-label">name</label>
-              <input required type="text" v-model="editable.name" class="form-control" id="name" placeholder="{{editable.name}}"
+              <input required type="text" v-model="editable.name" class="form-control" id="name" :placeholder="account.name"
                 name="name">
             </div>
             <!-- NOTE image -->
             <div class="mb-3">
               <label for="picture" class="form-label">picture</label>
-              <input required type="text" v-model="editable.picture" class="form-control" id="picture" placeholder="picture"
+              <input required type="text" v-model="editable.picture" class="form-control" id="picture" :placeholder="account.picture"
                 name="picture">
             </div>
             <!-- NOTE coverimage -->
             <div class="mb-3">
               <label for="coverImg" class="form-label">coverImg</label>
-              <input required type="text" v-model="editable.coverImg" class="form-control" id="coverImg" placeholder="coverImg"
+              <input required type="text" v-model="editable.coverImg" class="form-control" id="coverImg" :placeholder="account.coverImg"
                 name="coverImg">
             </div>
             <!-- NOTE github-->
             <div class="mb-3">
               <label for="github" class="form-label">github</label>
-              <input required type="text" v-model="editable.github" class="form-control" id="github" placeholder="github..."
+              <input required type="text" v-model="editable.github" class="form-control" id="github" :placeholder="account.github"
                 name="github">
             </div>
             <!-- NOTE linkedin-->
             <div class="mb-3">
               <label for="linkedin" class="form-label">linkedin</label>
-              <input required type="text" v-model="editable.linkedin" class="form-control" id="linkedin" placeholder="linkedin..."
+              <input required type="text" v-model="editable.linkedin" class="form-control" id="linkedin" :placeholder="account.linkedin"
                 name="linkedin">
             </div>
             <!-- NOTE resume-->
             <div class="mb-3">
               <label for="resume" class="form-label">resume</label>
-              <input required type="text" v-model="editable.resume" class="form-control" id="resume" placeholder="resume..."
+              <input required type="text" v-model="editable.resume" class="form-control" id="resume" :placeholder="account.resume"
                 name="resume">
             </div>
             <!-- NOTE class-->
             <div class="mb-3">
               <label for="class" class="form-label">class</label>
-              <input required type="text" v-model="editable.class" class="form-control" id="class" placeholder="class..."
+              <input required type="text" v-model="editable.class" class="form-control" id="class" :placeholder="account.class"
                 name="class">
             </div>
             <!-- NOTE bio-->
             <div class="mb-3">
               <label for="bio" class="form-label">bio</label>
-              <input required type="text" v-model="editable.bio" class="form-control" id="bio" placeholder="bio..."
+              <input required type="text" v-model="editable.bio" class="form-control" id="bio" :placeholder="account.bio"
                 name="bio">
             </div>
         
@@ -89,6 +89,7 @@ export default {
     return {
       editable,
       account: computed(() => AppState.account),
+      profile: computed(() => AppState.profile),
 
       async handleSubmit(){
         try {
