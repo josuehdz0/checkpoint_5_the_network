@@ -6,7 +6,7 @@
     <router-view />
   </main>
    <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
+    This app was a pain to make
   </footer>
 </template>
 

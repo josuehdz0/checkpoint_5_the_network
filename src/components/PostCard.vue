@@ -5,8 +5,11 @@
               <div class="row">
                 <div class="col-lg-3 col-5">
                   <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
-                    <img :src="post.creator.picture" alt="test" class="profile-picture"
+                    <img v-if="post.creator.picture" :src="post.creator.picture" alt="test" class="profile-picture"
                 :title="`Go to ${post.creator.name}'s' profile page`">
+                <div v-else="">
+                  <img src="https://artscimedia.case.edu/wp-content/uploads/sites/79/2016/12/14205134/no-user-image.gif" class="profile-picture" alt="">
+                </div>
                   </router-link>
                 </div>
                 <div class="col-5 mt-3">

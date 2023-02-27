@@ -47,7 +47,12 @@
                   
                 </button>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"> <i class="mdi mdi-pencil-outline "></i> Edit</a></li>
+                  <router-link :to="{ name: 'Account' }">
+                    <li><a class="dropdown-item" href="#"> <i class="mdi mdi-pencil-outline "></i> Edit</a></li>
+              
+            </router-link>
+                  
+                
 
                 </ul>
                 </div>
@@ -84,10 +89,10 @@
      <!-- NOTE Pagination functionality -->
      <div class="row justify-content-center mb-3">
         <div class="col-md-3 col-6 d-flex justify-content-center">
-          <button class="btn btn-outline-dark w-100 btn-scroll-top" :disabled="!previousPage" @click="changePage(previousPage)"> Previous</button>
+          <button class="btn btn-outline-dark w-100" :disabled="!previousPage" @click="changePageByProfileId(previousPage)"> Previous</button>
         </div>
         <div class="col-md-3 col-6 d-flex justify-content-center">
-          <button class="btn btn-outline-dark w-100" :disabled="!nextPage" @click="changePage(nextPage)">Next</button>
+          <button class="btn btn-outline-dark w-100" :disabled="!nextPage" @click="changePageByProfileId(nextPage)">Next</button>
         </div>
         </div>
 
@@ -124,19 +129,26 @@ export default {
                 Pop.error(error.message);
             }
         }
-        async function getPostByCreatorId() {
-            try {
-                const profileId = route.params.profileId;
-                await postsService.getPostByQuery({ creatorId: profileId });
-            }
-            catch (error) {
-                logger.error(error);
-                Pop.error(error.message);
-            }
-        }
+        // async function getPostsByCreatorId() {
+        //     try {
+        //         const profileId = route.params.profileId;
+        //         await postsService.getPostByQuery({ creatorId: profileId });
+        //     }
+        //     catch (error) {
+        //         logger.error(error);
+        //         Pop.error(error.message);
+        //     }
+        // }
+        async function getPostsByCreatorId() {
+      try {
+        await profilesService.getPostsByCreatorId(route.params.profileId)
+      } catch (error) {
+        Pop.error(error)
+      }
+    }
         onMounted(() => {
             getProfileById();
-            getPostByCreatorId();
+            getPostsByCreatorId();
         });
 
         onUnmounted(() => {
@@ -146,7 +158,17 @@ export default {
         return {
             profile: computed(() => AppState.profile),
             posts: computed(() => AppState.posts),
-            account: computed(()=> AppState.account)
+            account: computed(()=> AppState.account), 
+            nextPage: computed(()=> AppState.nextPage),
+            previousPage: computed(()=> AppState.previousPage),
+
+            async changePageByProfileId(url){
+              try {
+                await profilesService.changePageByProfileId(url)
+              } catch (error) {
+                Pop.error('error', error.message)
+              }
+            }
         };
     },
     components: { PostCard, PostForm }
