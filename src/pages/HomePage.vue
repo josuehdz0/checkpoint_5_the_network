@@ -1,10 +1,10 @@
 <template>
   <!-- NOTE complete page only loads if all content is ready. Else, loading component -->
-  <div v-if="posts.length && account.id" class="container-fluid">
+  <div v-if="posts.length" class="container-fluid">
     <!-- NOTE PostForm only shows up if account is signed in -->
-    <div  v-if="account.id && posts.length" class="row my-3 justify-content-center justify-content-md-end"> 
+    <div  v-if=" posts.length" class="row my-3 justify-content-center justify-content-md-end"> 
       <div class="col-md-8  col-11 mb-3 ">
-        <PostForm/>
+        <PostForm v-if="account.id"/>
       </div>
     </div>
 

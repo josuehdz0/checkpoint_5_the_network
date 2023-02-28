@@ -166,6 +166,7 @@ export default {
         onMounted(() => {
             getProfileById();
             getPostsByCreatorId();
+            
         });
 
         onUnmounted(() => {

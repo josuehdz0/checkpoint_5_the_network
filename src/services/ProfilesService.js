@@ -14,18 +14,18 @@ class ProfilesService{
 
 
   // FIXME still unable to change pages by profile Id
-  async changePageByProfileId(creatorId){
-    const res = await api.get(`${creatorId}/posts`)
+  async changePageByProfileId(url){
+    const res = await api.get(url)
   logger.log('Change Page in Profile', res.data.older)
   AppState.nextPage = res.data.older
   AppState.previousPage = res.data.newer
   AppState.posts = res.data.posts.map(p => new Post(p))
-  logger.log(AppState.posts)
+  logger.log( 'what im pushing to appstate?',AppState.posts)
   }
 
   async getPostsByCreatorId(creatorId) {
     const res = await api.get(`api/profiles/${creatorId}/posts`)
-    // logger.log(res.data)
+    logger.log(res.data,'get post by creatorid')
     AppState.posts = res.data.posts.map(p => new Post(p))
     AppState.nextPage = res.data.older
     AppState.previousPage = res.data.newer
